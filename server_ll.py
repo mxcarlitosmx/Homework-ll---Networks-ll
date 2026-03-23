@@ -2,7 +2,7 @@ import socket
 import threading
 import sys
 
-# Usaremos un diccionario para mapear: {socket: nickname}
+#Se usa un diccionario para mapear: {socket: nickname}
 clientes = {}
 
 def broadcast(mensaje, _cliente_socket):
@@ -30,7 +30,7 @@ def recibir_datos(conn, addr):
         clientes[conn] = nickname
         print(f"Cliente conectado: {addr} ({nickname})")
         
-        # Notificar a los demás que alguien entró
+        # Notificar a los demas clientes que alguien entro
         broadcast(f"[Servidor]: {nickname} se ha unido al chat".encode('ascii'), conn)
 
         while True:
@@ -52,7 +52,7 @@ def servirPorSiempre(socketTcp):
     print("Servidor escuchando...")
     while True:
         client_conn, client_addr = socketTcp.accept()
-        # Creamos el hilo para este cliente
+        # Se crea el hilo para este cliente
         thread = threading.Thread(target=recibir_datos, args=(client_conn, client_addr))
         thread.start()
 
