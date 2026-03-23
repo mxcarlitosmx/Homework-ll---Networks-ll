@@ -26,7 +26,7 @@ def enviar_mensajes(sock):
             break
         sock.send(mensaje.encode('ascii'))
 
-#Configuración Cliente
+#Configuracion Cliente
 if len(sys.argv) != 3:
     print("Usa: python cliente.py <host> <puerto>")
     sys.exit(1)
